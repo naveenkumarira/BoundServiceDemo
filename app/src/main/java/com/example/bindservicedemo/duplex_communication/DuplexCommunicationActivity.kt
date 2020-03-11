@@ -15,6 +15,8 @@ import com.example.bindservicedemo.duplex_communication.ConvertHandler.Companion
 
 class DuplexCommunicationActivity : AppCompatActivity() {
 
+    //TODO: https://www.coursera.org/lecture/androidapps-2/service-and-activity-communication-via-android-messengers-part-1-Crv2A
+
     lateinit var inputText: EditText
     lateinit var outputText: TextView
     lateinit var submitButton: Button
@@ -70,5 +72,10 @@ class DuplexCommunicationActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unbindService(serviceConnection)
     }
 }
