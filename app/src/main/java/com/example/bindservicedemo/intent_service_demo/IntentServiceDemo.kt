@@ -13,7 +13,11 @@ class IntentServiceDemo: IntentService(IntentServiceDemo::class.java.name) {
 
     override fun onHandleIntent(intent: Intent?) {
         Log.d("IntentService", "onHandleIntent")
-        val message = intent?.getStringExtra("message")
-        Log.d("IntentService", message ?: "No message received")
+        val name = intent?.getStringExtra("message")
+        if(name?.isEmpty() == true)  return
+        val intent = Intent()
+        intent.putExtra("greeting", "Greetings from Google, Hi $name")
+        intent.action = IntentServiceDemoActivity.INTENT_ACTION_GREETINGS
+        sendBroadcast(intent)
     }
 }
