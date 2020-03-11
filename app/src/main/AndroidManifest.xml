@@ -9,6 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".intent_service_demo.IntentServiceDemoActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".duplex_communication.DuplexCommunicationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,12 +23,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".messenger.MessengersActivity"> </activity>
+        <activity android:name=".messenger.MessengersActivity"></activity>
         <activity android:name=".localbinder.BindingActivity" />
 
         <service android:name=".localbinder.LocalService" />
         <service android:name=".messenger.MessengerService" />
         <service android:name=".duplex_communication.ConvertService" />
+        <service
+            android:name=".intent_service_demo.IntentServiceDemo"
+            android:exported="false" />
     </application>
 
 </manifest>
